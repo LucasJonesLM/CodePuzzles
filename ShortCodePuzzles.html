@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Short Code Puzzles</title>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript">
+// 1. Sum an array of numbers.
+  function arraySum(x){
+    var t = 0;
+    for(var i = 0; i<x.length; i++){
+      t = t+x[i];
+    }
+      return t;
+  }
+  var y = [1,2,3,4,5];
+  arraySum(y);
+// 2. Sum of increments
+function increments(start,end,inc){
+  if(end<start){
+    var alarm = "End needs to be greater than start!";
+    return alarm;
+  }
+    var sum = 0;
+    for(var i = start; i<end; i += inc){
+      sum = sum + i;
+      console.log(sum);
+    }
+    return sum;
+}
+increments(4,2,2);
+// 3. Min and Max values of an array
+function minArray(ray){
+    var mini = ray[0];
+    var index = 0;
+    for(var i = 1;i<ray.length;i++){
+      if(ray[i]<mini){
+      index = i;
+      mini = ray[i];
+      }
+    }
+    console.log(index);
+    return index;
+}
+function maxArray(ray){
+    var maxi = ray[0];
+    var index = 0;
+    for(var i = 1;i<ray.length;i++){
+      if(ray[i]>maxi){
+      index = i;
+      maxi = ray[i];
+      }
+    }
+    console.log(index);
+    return index;
+}
+var t = [1,1,2,3,4,4,0];
+console.log(minArray(t));
+console.log(maxArray(t));
+// 4. Repeat a string
+function stringCat(strng, times){
+  var s = strng;
+  for(var i = 1; i<times; i++){
+    s += strng;
+  }
+  return s;
+}
+stringCat("I love you ", 4);
+// 5. Find the factors of an integer
+function factors(num){
+  var factor = [];
+  var arrCnt = 0;
+  for(var i = 2;i<num;i++){
+    if (num%i === 0) {
+      factor[arrCnt] = i;
+      arrCnt++;
+    }
+  }
+  return factor;
+}
+
+console.log(factors(2580));
+// 6. Random numbers within a range
+function random(begin,end) {
+  return Math.floor((Math.random() * (end-begin+1)) + 1)+begin-1;
+}
+console.log(random(5,10));
+// 7. Random element from an array
+      // select a random index using the random function above
+// 8. Count occurences of a character in a string
+      // use count object that we created for the repititions function below
+// 9. Most repititions of a character
+function repetitions(str) {
+    var counts = {};
+    for (var i in str) {
+        var ch = str[i];
+        if (ch in counts) {   // NOT FOR-IN!
+            counts[ch]++;   // counts[ch] = counts[ch] + 1;
+        } else {
+            counts[ch] = 1;
+        }
+    }
+    console.log(counts);
+    var max = 0;
+    var maxChars = [];
+    for (var ch in counts) {
+        if (counts[ch] > max) {
+            max = counts[ch];
+            maxChars = [ch];
+        } else if (counts[ch] === max) {
+            maxChars.push(ch);
+        }
+    }
+    return {
+        chars: maxChars.join(''),
+        count: max
+    };
+}
+console.log(repetitions('fwjfj'));
+// 10. Join together arrays within an array
+        // use typeof
+// 11. Palindromes
+        // count characters in the string
+        // for odd characters, remove the middle one
+        // compare the first half to the last half in reverse.
+// 12. Title case
+      // use charAt to find space and make the next character capital
+// 13. Blend Colors
+// 14. Same values in any order
+      // create object from array with keyvalue of count
+      // if both objects are equal (using _.isEqual() library with Lodash or Underscore) then they are the Same
+          // The below code with work with Lodash or Underscore
+      // var a1 = {a:5,b:2,c:2};
+      // var b1 = {a:5,b:2,c:2};
+      // console.log(_.isEqual(a1,b1));
+
+  </script>
+</html>
